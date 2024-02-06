@@ -19,6 +19,7 @@ function oldScrabbleScorer(word) {
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
+      // if (i == oldPointStructure.1) 
  
 	  for (const pointValue in oldPointStructure) {
  
@@ -38,9 +39,13 @@ let userInput = ""
 
 function initialPrompt() {
 userInput = input.question("Let's play some scrabble! Enter a word: ");
+console.log(oldScrabbleScorer(userInput));
 };
 
-let simpleScorer;
+
+let simpleScorer = {
+   1: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z]
+};
 
 let vowelBonusScorer;
 
