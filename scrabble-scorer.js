@@ -52,6 +52,21 @@ const newPointStructure = {
    Z: [10]
 }
 
+
+function newScrabbleScorer(word) {
+	word = word.toUpperCase();
+	let letterPoints = "";
+ 
+	for (let i = 0; i < word.length; i++)
+			letterPoints += `Letter '${word[i]}': ${newPointStructure[word[i]]}\n`
+	  
+	return letterPoints;
+ };
+
+
+
+
+
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
@@ -105,9 +120,10 @@ let userInput = ""
 
 function initialPrompt() {
 userInput = input.question("Let's play some scrabble! Enter a word: ");
-console.log(oldScrabbleScorer(userInput));
-console.log(simpleScorer(userInput));
-console.log(vowelBonusScorer(userInput));
+// console.log(oldScrabbleScorer(userInput));
+// console.log(simpleScorer(userInput));
+// console.log(vowelBonusScorer(userInput));
+// console.log(newScrabbleScorer(userInput));
 };
 
 
@@ -121,22 +137,41 @@ function scrabbleScorer() {
  };
 
 
-const scoringAlgorithms = []
+ const scoringAlgorithms = [
+   {
+     name: "Simple Score",
+     description: "Each letter is worth 1 point.",
+     scorerFunction: simpleScorer
+   },
+     {
+       name: "Bonus Vowels",
+       description: "Vowels are worth 3 points, consonants are 1 point.",
+       scorerFunction: vowelBonusScorer
+     },
+     {
+       name: "Scrabble",
+       description: "The traditional scoring algorithm.",
+       scorerFunction: oldScrabbleScorer
+     }
+ ]
+
+
 
 function scorerPrompt() {
-  scoreSelection = input.question(`Which scoring algorithm would you like? \n   0 - Simple: One point per character
-  1 - Vowel Bonus: Vowels are worth 3 points
-  2 - Scrabble: Uses scrabble point system
-  Enter 0, 1, or 2: 0`);
+let scoreSelection = ""
+scoreSelection = input.question(`Which scoring algorithm would you like? \n0 - Simple: One point per character
+1 - Vowel Bonus: Vowels are worth 3 points
+2 - Scrabble: Uses scrabble point system
+Enter 0, 1, or 2: `);
  
-  let scoreSelection = ""
+  
  
   if (scoreSelection === "0"){
-  console.log(scoringAlgorithms[0](userInput));
+  console.log(scoringAlgorithms[0]);
   } if (scoreSelection === "1"){
-   console.log(scoringAlgorithms[1](userInput)); 
+   console.log(scoringAlgorithms[1]); 
   } if (scoreSelection === "2"){
-   console.log(scoringAlgorithms[2](userInput)); 
+   console.log(scoringAlgorithms[2]); 
   };
 
 }
@@ -147,8 +182,7 @@ function transform() {};
 
 function runProgram() {
    initialPrompt();
-   // let word = initialPrompt();
-   // let score = word
+   scorerPrompt();
 }
 
 // Don't write any code below this line //

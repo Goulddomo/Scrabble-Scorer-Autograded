@@ -1,4 +1,4 @@
-let constinents = "bcdfghjklmnpqrstvwxyz";
+let consonants = "bcdfghjklmnpqrstvwxyz";
 let vowels = "aeiou"
 
 // const { vowelBonusScorer } = require("./scrabble-scorer");
@@ -9,7 +9,7 @@ let vowels = "aeiou"
    let score = 0
  
    for(let letter of word.toLowerCase()){
-     if (constinents.includes(letter))
+     if (consonants.includes(letter))
      score += 1;
      if (vowels.includes(letter))
      score += 3;
@@ -92,24 +92,18 @@ function newScrabbleScorer(word) {
 
 const scoringAlgorithms = [
   {
-    
-    name: "Simple Scorer",
+    name: "Simple Score",
     description: "Each letter is worth 1 point.",
     scorerFunction: simpleScorer
   },
     {
-      name: "Bonus Scorer",
-      description: "Vowels are worth 3 points.",
-      scorerFunction:  function vowelBonusScorer(word) {
-        let score = 0
-      
-        for(let letter of word.toLowerCase()){
-          if (constinents.includes(letter))
-          score += 1;
-          if (vowels.includes(letter))
-          score += 3;
-        } 
-        return score;
-      }
-    }  
+      name: "Bonus Vowels",
+      description: "Vowels are worth 3 points, consonants are 1 point.",
+      scorerFunction: vowelBonusScorer
+    },
+    {
+      name: "Scrabble",
+      description: "The traditional scoring algorithm.",
+      scorerFunction: oldScrabbleScorer
+    }
 ]
