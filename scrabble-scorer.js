@@ -95,7 +95,6 @@ function oldScrabbleScorer(word) {
       score += 3;
     } 
     return score;
-   // return 21
   };
 
 
@@ -114,9 +113,7 @@ console.log(vowelBonusScorer(userInput));
 
 
 
-function vowelBonusScorer() {
 
-};
 
 function scrabbleScorer() {
 
@@ -124,14 +121,13 @@ function scrabbleScorer() {
  };
 
 
-const scoringAlgorithms = [oldScrabbleScorer(), simpleScorer(), vowelBonusScorer()];
+const scoringAlgorithms = []
 
 function scorerPrompt() {
   scoreSelection = input.question(`Which scoring algorithm would you like? \n   0 - Simple: One point per character
   1 - Vowel Bonus: Vowels are worth 3 points
   2 - Scrabble: Uses scrabble point system
-  Enter 0, 1, or 2: 0
-  Score for 'coconut': 7 `);
+  Enter 0, 1, or 2: 0`);
  
   let scoreSelection = ""
  
