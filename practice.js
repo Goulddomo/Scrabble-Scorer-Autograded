@@ -1,37 +1,37 @@
-let consonants = "bcdfghjklmnpqrstvwxyz";
-let vowels = "aeiou"
+// let consonants = "bcdfghjklmnpqrstvwxyz";
+// let vowels = "aeiou"
 
 // const { vowelBonusScorer } = require("./scrabble-scorer");
 
 // vowelBonusScorer doesnt work like simpleScorer does
 
- function vowelBonusScorer(word) {
-   let score = 0
+//  function vowelBonusScorer(word) {
+//    let score = 0
  
-   for(let letter of word.toLowerCase()){
-     if (consonants.includes(letter))
-     score += 1;
-     if (vowels.includes(letter))
-     score += 3;
-   } 
-   return score;
- };
+//    for(let letter of word.toLowerCase()){
+//      if (consonants.includes(letter))
+//      score += 1;
+//      if (vowels.includes(letter))
+//      score += 3;
+//    } 
+//    return score;
+//  };
  
- console.log(vowelBonusScorer("elevate"));
+//  console.log(vowelBonusScorer("elevate"));
 
-let alphabet = "abcdefghijklmnopqrstuvwxyz";
+// let alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-function simpleScorer(word) {
-  let score = 0
+// function simpleScorer(word) {
+//   let score = 0
 
-  for(let letter of word.toLowerCase()){
-    if (alphabet.includes(letter))
-    score += 1;
-  }
-  return score;
-};
+//   for(let letter of word.toLowerCase()){
+//     if (alphabet.includes(letter))
+//     score += 1;
+//   }
+//   return score;
+// };
 
-console.log(simpleScorer("hello"));
+// console.log(simpleScorer("hello"));
 
 
 // // What is pointValue? It was in oldScrabbleScorer
@@ -90,20 +90,20 @@ function newScrabbleScorer(word) {
 // //  const scoringAlgorithms = [oldScrabbleScorer(), simpleScorer(), vowelBonusScorer()];
 // // Storing a function in an object in an array??? Is this right???
 
-const scoringAlgorithms = [
-  {
-    name: "Simple Score",
-    description: "Each letter is worth 1 point.",
-    scorerFunction: simpleScorer
-  },
-    {
-      name: "Bonus Vowels",
-      description: "Vowels are worth 3 points, consonants are 1 point.",
-      scorerFunction: vowelBonusScorer
-    },
-    {
-      name: "Scrabble",
-      description: "The traditional scoring algorithm.",
-      scorerFunction: oldScrabbleScorer
-    }
-]
+// const scoringAlgorithms = [
+//   {
+//     name: "Simple Score",
+//     description: "Each letter is worth 1 point.",
+//     scorerFunction: simpleScorer
+//   },
+//     {
+//       name: "Bonus Vowels",
+//       description: "Vowels are worth 3 points, consonants are 1 point.",
+//       scorerFunction: vowelBonusScorer
+//     },
+//     {
+//       name: "Scrabble",
+//       description: "The traditional scoring algorithm.",
+//       scorerFunction: oldScrabbleScorer
+//     }
+// ]

@@ -167,15 +167,13 @@ Enter 0, 1, or 2: `);
   
  
   if (scoreSelection === "0"){
-  console.log(scoringAlgorithms[0]);
+  console.log(scoringAlgorithms[0].scorerFunction(userInput));
   } if (scoreSelection === "1"){
-   console.log(scoringAlgorithms[1]); 
+   console.log(scoringAlgorithms[1].scorerFunction(userInput)); 
   } if (scoreSelection === "2"){
-   console.log(scoringAlgorithms[2]); 
-  };
-
+   console.log(scoringAlgorithms[2].scorerFunction(userInput)); 
+  }
 }
-
 function transform() {};
 
 // let newPointStructure;
