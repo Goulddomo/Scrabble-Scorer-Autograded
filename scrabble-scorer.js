@@ -23,7 +23,7 @@ const oldPointStructure = {
 //    3: ['A', 'E', 'I', 'O', 'U']
 // }
 
-const newPointStructure = transform(oldPointStructure);
+let newPointStructure = transform(oldPointStructure);
 
 
 function newScrabbleScorer(word) {
@@ -106,9 +106,10 @@ userInput = input.question("Let's play some scrabble! Enter a word: ");
 
 function scrabbleScorer(word) {
    let score = 0
-   for(let letter of word.toUpperCase()){
-     score += Number(newPointStructure[letter]);
+   for(let letter of word.toLowerCase()){
+     score += (newPointStructure[letter]);
    } 
+   console.log(score)
    return score;
  };
 
@@ -160,7 +161,7 @@ function transform(oldPointStructure) {
     
       for (key in oldPointStructure) {
         for (value of oldPointStructure[key])
-     {   newPointStructure[value] = key; 
+     {   newPointStructure[value.toLowerCase()] = Number(key); 
      }
     };
     return newPointStructure
