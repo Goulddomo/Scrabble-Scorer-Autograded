@@ -23,34 +23,7 @@ const oldPointStructure = {
 //    3: ['A', 'E', 'I', 'O', 'U']
 // }
 
-const newPointStructure = {
-   A: [1],
-   B: [3],
-   C: [3],
-   D: [2],
-   E: [1],
-   F: [4],
-   G: [2],
-   H: [4],
-   I: [1],
-   J: [8],
-   K: [5],
-   L: [1],
-   M: [3],
-   N: [1],
-   O: [1],
-   P: [3],
-   Q: [10],
-   R: [1],
-   S: [1],
-   T: [1],
-   U: [1],
-   V: [4],
-   W: [4],
-   X: [8],
-   Y: [4],
-   Z: [10]
-}
+const newPointStructure = transform(oldPointStructure);
 
 
 function newScrabbleScorer(word) {
@@ -131,9 +104,12 @@ userInput = input.question("Let's play some scrabble! Enter a word: ");
 
 
 
-function scrabbleScorer() {
-
-
+function scrabbleScorer(word) {
+   let score = 0
+   for(let letter of word.toUpperCase()){
+     score += Number(newPointStructure[letter]);
+   } 
+   return score;
  };
 
 
@@ -151,7 +127,7 @@ function scrabbleScorer() {
      {
        name: "Scrabble",
        description: "The traditional scoring algorithm.",
-       scorerFunction: oldScrabbleScorer
+       scorerFunction: scrabbleScorer
      }
  ]
 
@@ -173,8 +149,23 @@ Enter 0, 1, or 2: `);
   } if (scoreSelection === "2"){
    console.log(scoringAlgorithms[2].scorerFunction(userInput)); 
   }
+//   {
+//    while loop for invalid response, try again.
+//   }
 }
-function transform() {};
+
+
+function transform(oldPointStructure) {
+      let newPointStructure = {};
+    
+      for (key in oldPointStructure) {
+        for (value of oldPointStructure[key])
+     {   newPointStructure[value] = key; 
+     }
+    };
+    return newPointStructure
+  };
+
 
 // let newPointStructure;
 
